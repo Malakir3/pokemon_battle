@@ -1,2 +1,23 @@
 <h1>新規登録ページ</h1>
 <%= link_to 'トップページへ', root_path %>
+<%= form_with model: @pokemon, local: true do |f| %>
+  <div>
+    <%= f.label :pokemon_number %>
+    <%= f.text_field :pokemon_number, placeholder: '図鑑No', autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: '例）リザードン' %>
+  </div>
+  <div>
+    <%= f.label :type1 %>
+    <%= f.text_field :type1, placeholder: '例）ほのお' %>
+  </div>
+  <div>
+    <%= f.label :type2 %>
+    <%= f.text_field :type2, placeholder: '例）ひこう' %>
+  </div>
+  <div>
+    <%= f.submit '登録する' %>
+  </div>
+<% end %>
