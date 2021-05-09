@@ -5,6 +5,7 @@
   <div>
     <%= link_to '削除', pokemon_path(pokemon.id), method: :delete %>
     <%= link_to '詳細', pokemon_path(pokemon.id) %>
+    <%= link_to '編集', edit_pokemon_path(pokemon.id) %>
   </div>
   <div>
     図鑑No:<%= pokemon.pokemon_number %> <%= pokemon.name %><br>

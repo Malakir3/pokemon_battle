@@ -1,0 +1,23 @@
+<h1>情報編集ページ</h1>
+<%= link_to 'トップページへ', root_path %>
+<%= form_with model: @pokemon, local: true do |f| %>
+  <div>
+    <%= f.label :pokemon_number %>
+    <%= f.text_field :pokemon_number, placeholder: '図鑑No', autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: '例）リザードン' %>
+  </div>
+  <div>
+    <%= f.label :type1_id %>
+    <%= f.collection_select(:type1_id, Type.all, :id, :name, {}, {}) %>
+  </div>
+  <div>
+    <%= f.label :type2_id %>
+    <%= f.collection_select(:type2_id, Type.all, :id, :name, {}, {}) %>
+  </div>
+  <div>
+    <%= f.submit '登録する' %>
+  </div>
+<% end %>

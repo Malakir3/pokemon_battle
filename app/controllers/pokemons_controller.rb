@@ -21,9 +21,12 @@ class PokemonsController < ApplicationController
   end
 
   def edit
+    @pokemon = Pokemon.find(params[:id])
   end
 
   def update
+    @pokemon = Pokemon.find(params[:id])
+    render :edit unless @pokemon.update(pokemon_params)
   end
 
   def destroy
