@@ -2,9 +2,14 @@
 <%= link_to '新規登録', new_pokemon_path %>
 <% @pokemons.each do |pokemon| %>
 <div>
-  図鑑No:<%= pokemon.pokemon_number %> <%= pokemon.name %><br>
-  タイプ1：<%= pokemon.type1_id%><br>
-  タイプ2：<%= pokemon.type2_id%><br>
-  ----------------------------------------
+  <div>
+    <%= link_to '削除', pokemon_path(pokemon.id), method: :delete %>
+  </div>
+  <div>
+    図鑑No:<%= pokemon.pokemon_number %> <%= pokemon.name %><br>
+    タイプ1：<%= pokemon.type1_id%><br>
+    タイプ2：<%= pokemon.type2_id%><br>
+    ----------------------------------------
+  </div>
 </div>
 <% end %>
