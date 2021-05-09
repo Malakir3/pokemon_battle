@@ -1,5 +1,5 @@
 class Pokemon < ApplicationRecord
-  with options presesence: true do
+  with_options presence: true do
     validates :pokemon_number
     validates :name
     validates :type1_id
