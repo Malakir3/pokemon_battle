@@ -1,4 +1,6 @@
 class PokemonsController < ApplicationController
+  before_action :set_pokemon, only: [:show, :edit, :update, :destroy]
+
   def index
     @pokemons = Pokemon.all.order('pokemon_number ASC')
   end
@@ -17,20 +19,16 @@ class PokemonsController < ApplicationController
   end
 
   def show
-    @pokemon = Pokemon.find(params[:id])
   end
 
   def edit
-    @pokemon = Pokemon.find(params[:id])
   end
 
   def update
-    @pokemon = Pokemon.find(params[:id])
     render :edit unless @pokemon.update(pokemon_params)
   end
 
   def destroy
-    @pokemon = Pokemon.find(params[:id])
     @pokemon.destroy
   end
 
@@ -38,5 +36,9 @@ class PokemonsController < ApplicationController
 
   def pokemon_params
     params.require(:pokemon).permit(:pokemon_number, :name, :type1_id, :type2_id)
+  end
+
+  def set_pokemon
+    @pokemon = Pokemon.find(params[:id])
   end
 end
