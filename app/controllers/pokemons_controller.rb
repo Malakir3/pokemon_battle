@@ -1,6 +1,6 @@
 class PokemonsController < ApplicationController
   def index
-    @pokemons = Pokemon.all
+    @pokemons = Pokemon.all.order('pokemon_number ASC')
   end
 
   def new
@@ -26,6 +26,8 @@ class PokemonsController < ApplicationController
   end
 
   def destroy
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.destroy
   end
 
   private
