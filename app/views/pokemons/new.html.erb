@@ -10,13 +10,12 @@
     <%= f.text_field :name, placeholder: '例）リザードン' %>
   </div>
   <div>
-  <%# アクティブハッシュで選択式にする(idだから) %>
-    <%= f.label :type1 %>
-    <%= f.text_field :type1, placeholder: '例）ほのお' %>
+    <%= f.label :type1_id %>
+    <%= f.collection_select(:type1_id, Type.all, :id, :name, {}, {}) %>
   </div>
   <div>
-    <%= f.label :type2 %>
-    <%= f.text_field :type2, placeholder: '例）ひこう' %>
+    <%= f.label :type2_id %>
+    <%= f.collection_select(:type2_id, Type.all, :id, :name, {}, {}) %>
   </div>
   <div>
     <%= f.submit '登録する' %>
