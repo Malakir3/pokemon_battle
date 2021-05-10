@@ -1,0 +1,20 @@
+<h1>技一覧ページ</h1>
+<%= link_to 'トップページへ', root_path %><br>
+<%= link_to '新規登録', new_move_path %>
+<% @moves.each do |move| %>
+<div>
+  <div>
+    <%= link_to '削除', move_path(move.id), method: :delete %>
+    <%= link_to '詳細', move_path(move.id) %>
+    <%= link_to '編集', edit_move_path(move.id) %>
+  </div>
+  <div>
+    技名:<%= move.move_name %><br>
+    タイプ：<%= move.type_id%><br>
+    PP：<%= move.pp%><br>
+    威力：<%= move.popwer%><br>
+    命中率：<%= move.accuracy%> %<br>
+    ----------------------------------------
+  </div>
+</div>
+<% end %>

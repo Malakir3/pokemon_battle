@@ -1,16 +1,18 @@
 class MovesController < ApplicationController
+  before_action :set_move, only: [:show, :edit, :update, :destroy]
+  
   def index
-    @moves = move.all.order('move_number ASC')
+    @moves = Move.all.order('move_name ASC')
   end
 
   def new
-    @move = move.new
+    @move = Move.new
   end
 
   def create
-    @move = move.new(move_params)
+    @move = Move.new(move_params)
     if @move.valid?
-      move.create(move_params)
+      Move.create(move_params)
     else
       render :new
     end
@@ -37,6 +39,6 @@ class MovesController < ApplicationController
   end
 
   def set_move
-    @move = move.find(params[:id])
+    @move = Move.find(params[:id])
   end
 end
