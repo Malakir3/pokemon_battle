@@ -1,5 +1,7 @@
 class Pokemon < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  has_many :pokemon_moves
+  has_many :moves, through: :pokemon_moves
   has_many :type
   
   with_options presence: true do
