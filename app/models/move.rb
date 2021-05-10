@@ -1,4 +1,5 @@
 class Move < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   has_many :pokemon_moves
   has_many :pokemons, through: :pokemon_moves
   has_many :type
