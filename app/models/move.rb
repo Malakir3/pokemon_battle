@@ -11,4 +11,6 @@ class Move < ApplicationRecord
     validates :power
     validates :accuracy
   end
+
+  validates :type_id, numericality: { other_than: 1 }
 end
