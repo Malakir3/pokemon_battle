@@ -1,0 +1,27 @@
+<h1>技編集ページ</h1>
+<%= link_to 'トップページへ', root_path %>
+<%= form_with model: @move, local: true do |f| %>
+  <div>
+    <%= f.label :move_name %>
+    <%= f.text_field :move_name, placeholder: '例）はかいこうせん', autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :type_id %>
+    <%= f.collection_select(:type_id, Type.all, :id, :name, {}, {}) %>
+  </div>
+  <div>
+    <%= f.label :pp %>
+    <%= f.text_field :pp, placeholder: '例）5' %>
+  </div>
+  <div>
+    <%= f.label :power %>
+    <%= f.text_field :power, placeholder: '例）150' %>
+  </div>
+  <div>
+    <%= f.label :accuracy %>
+    <%= f.text_field :accuracy, placeholder: '例）90' %>
+  </div>
+  <div>
+    <%= f.submit '更新する' %>
+  </div>
+<% end %>
